@@ -1,0 +1,59 @@
+<div class="carousel carousel-slider center">
+    <div class="carousel-fixed-item center">
+      <a class="btn waves-effect white grey-text darken-text-2">button</a>
+    </div>
+    <div class="carousel-item red white-text" href="#one!">
+      <img src="http://via.placeholder.com/1920x550" alt="">
+    </div>
+    <div class="carousel-item amber white-text" href="#two!">
+      <img src="http://via.placeholder.com/1920x550" alt="">
+    </div>
+    <div class="carousel-item green white-text" href="#three!">
+      <img src="http://via.placeholder.com/1920x550" alt="">
+    </div>
+    <div class="carousel-item blue white-text" href="#four!">
+      <img src="http://via.placeholder.com/1920x550" alt="">
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h2>DeliAPP</h2>
+      <div class="divider"></div>
+      <p>
+        Nuestra aplicación tiene por objetivo juntar a todos los locales que hagan reparto a domicilio,
+        con la finalidad de que todo se haga de una experiencia mas grata y simple. Y para eso reunimos todos locales
+        y categorias que existen en Valdivia relacionado al reparto a domicilio.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h2>Deliveries en Valdivia</h2>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="row">
+    <% @foods.each do |food| %>
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <%= image_tag food.food_file_url %>
+            <span class="card-title">
+              <%= food.name %>
+            </span>
+            <div class="card-action">
+              <%= link_to 'Ver Delivery', food, class: 'btn' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+    <%= link_to 'Agregar Nuevo Local', new_food_path, class: 'btn' %>
+  <% end %>
+  <br><br>
+</div>

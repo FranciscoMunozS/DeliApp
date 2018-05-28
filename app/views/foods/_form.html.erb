@@ -1,0 +1,61 @@
+<%= simple_form_for(@food) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="col s12">
+      <div class="row">
+        <h4>Información del Local</h4>
+        <div class="divider"></div>
+        <br>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Foto de perfil</span>
+            <%= f.input :food_file, as: :file, label: false %>
+          </div>
+          <div class="file-path-wrapper">
+            <input type="text" class="file-path validate">
+          </div>
+        </div>
+        <%= f.input :name, label: false, placeholder: "Nombre" %>
+        <%= f.input :address, label: false, placeholder: "Dirección" %>
+        <%= f.input :contact, label: false, placeholder: "Contacto" %>
+      </div>
+    </div>
+
+    <div class="col s12">
+      <div class="row">
+        <h4>Descripción del Local</h4>
+        <div class="divider"></div>
+        <br>
+        <%= f.input :description, as: :string, label: false, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini' } } %>
+      </div>
+    </div>
+
+    <div class="col s12">
+      <div class="row">
+        <h4>Horario de atención</h4>
+        <div class="divider"></div>
+        <div class="input-field col s6">
+          <%= f.input :start_day, label: false, placeholder: 'Atiende desde los...' %>
+        </div>
+        <div class="input-field col s6">
+          <%= f.input :start_end, label: false, placeholder: 'Hasta los...' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.input :start_at, as: :string, input_html: { class: 'timepicker' }, label: false, placeholder: 'Abre a las...' %>
+        </div>
+        <div class="input-field col s6">
+          <%= f.input :end_at, as: :string, input_html: { class: 'timepicker' }, label: false, placeholder: 'Cierra a las...' %>
+        </div>
+      </div>
+    </div>
+
+  <div class="col s12">
+    <div class="row">
+      <%= f.button :submit %>
+    </div>
+  </div>
+
+<% end %>

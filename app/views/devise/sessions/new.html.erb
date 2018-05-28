@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col s6 offset-s3 z-depth-1" id="panell">
+      <h5 id="title">Iniciar sesión</h5>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <div class="input-field" id="username">
+          <%= f.input :email, required: false, label: false, placeholder: "Correo electronico", autofocus: true %>
+        </div>
+        <div class="input-field" id="password">
+          <%= f.input :password, label: false, placeholder: "Contraseña", required: false %>
+        </div>
+        <%= f.button :submit, "Iniciar sesión", class: 'button_submit' %>
+      <% end %>
+    </div>
+  </div>
+</div>

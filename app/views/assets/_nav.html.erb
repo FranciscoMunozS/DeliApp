@@ -1,0 +1,16 @@
+<div class="navbar-fixed">
+  <nav>
+    <div class="container">
+      <div class="nav-wrapper">
+       <a href="/" class="brand-logo">DeliApp</a>
+       <ul id="nav-mobile" class="right hide-on-med-and-down">
+         <% if user_signed_in? %>
+          <li> <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %> </li>
+         <% else %>
+          <li><%= link_to 'Iniciar sesión', new_user_session_path %></li>
+         <% end %>
+       </ul>
+      </div>
+    </div>
+  </nav>
+</div>
