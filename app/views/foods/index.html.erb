@@ -33,6 +33,7 @@
     <div class="col s12">
       <h2>Deliveries en Valdivia</h2>
       <div class="divider"></div>
+      <h3>Sushi</h3>
     </div>
   </div>
   <div class="row">
@@ -40,7 +41,40 @@
       <div class="col s12 m4">
         <div class="card">
           <div class="card-image">
-            <%= image_tag food.food_file_url %>
+            <span class="card-title">
+              <%= food.name %>
+            </span>
+            <div class="card-action">
+              <%= link_to 'Ver Delivery', food, class: 'btn' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h3>Sandwich</h3>
+  <div class="row">
+    <% @foods.each do |food| %>
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
+            <span class="card-title">
+              <%= food.name %>
+            </span>
+            <div class="card-action">
+              <%= link_to 'Ver Delivery', food, class: 'btn' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h3>Pizza</h3>
+  <div class="row">
+    <% @foods.each do |food| %>
+      <div class="col s12 m4">
+        <div class="card">
+          <div class="card-image">
             <span class="card-title">
               <%= food.name %>
             </span>
